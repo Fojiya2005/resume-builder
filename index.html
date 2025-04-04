@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Advanced Resume Builder</h1>
+
+    <div class="container">
+        <!-- Resume Input Form -->
+        <form id="resumeForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address">
+
+            <label for="profilePic">Profile Picture:</label>
+            <input type="file" id="profilePic" accept="image/*">
+
+            <label for="summary">Summary:</label>
+            <textarea id="summary" placeholder="Brief summary about yourself"></textarea>
+
+            <label for="skills">Skills (comma-separated):</label>
+            <input type="text" id="skills" placeholder="E.g., HTML, CSS, JavaScript">
+
+            <!-- Dynamic Work Experience -->
+            <div id="experienceContainer">
+                <h3>Work Experience:</h3>
+                <button type="button" onclick="addExperience()">+ Add Experience</button>
+            </div>
+
+            <label for="education">Education:</label>
+            <textarea id="education" placeholder="Your educational background"></textarea>
+
+            <!-- Resume Template Selector -->
+            <label for="template">Select Resume Template:</label>
+            <select id="template">
+                <option value="template1">Modern</option>
+                <option value="template2">Classic</option>
+            </select>
+
+            <button type="button" onclick="generateResume()">Generate Resume</button>
+            <button type="button" onclick="saveResume()">Save Resume</button>
+            <button type="button" onclick="loadResume()">Load Resume</button>
+        </form>
+
+        <!-- Resume Preview -->
+        <div id="resumePreview" class="resume-preview template1">
+            <img id="previewImage" class="profile-pic" src="" alt="Profile Picture">
+            <h2 id="previewName"></h2>
+            <p id="previewContact"></p>
+            <p id="previewSummary"></p>
+
+            <h3>Skills</h3>
+            <ul id="previewSkills"></ul>
+
+            <h3>Experience</h3>
+            <div id="previewExperience"></div>
+
+            <h3>Education</h3>
+            <p id="previewEducation"></p>
+
+            <button onclick="downloadResume()">Download PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</body>
+
+</html>
